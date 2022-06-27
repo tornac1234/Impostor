@@ -5,3 +5,4 @@
 /tools
 
 .local/
+/src/Impostor.Plugins.RootPostor/.env
