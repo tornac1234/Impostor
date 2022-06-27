@@ -1,0 +1,1 @@
+How to build : https://ci.appveyor.com/project/Impostor/Impostor/branch/master

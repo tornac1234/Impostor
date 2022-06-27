@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Impostor.Tests": {
+      "commandName": "Project"
+    },
+    "RootPostor Plugin": {
+      "commandName": "Project"
+    }
+  }
+}
