@@ -1,15 +1,17 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
+using Newtonsoft.Json;
 
 namespace Impostor.Plugins.RootPostor.Discord
 {
     public class DiscordManager
     {
         public static DiscordManager Instance;
-        private readonly string TOKEN;
+        private string TOKEN;
         private DiscordSocketClient _client;
         private DiscordCommandsHandler _commandsHandler;
         private CommandService commandService;
@@ -23,7 +25,9 @@ namespace Impostor.Plugins.RootPostor.Discord
 
         private void ReadToken()
         {
-
+            using var reader = new StreamReader("config.json");
+            var json = reader.ReadToEnd();
+            TOKEN = JsonConvert.DeserializeObject<Config>(json).DiscordToken;
         }
 
         public async Task MainAsync()
@@ -55,6 +59,11 @@ namespace Impostor.Plugins.RootPostor.Discord
         {
             Console.WriteLine(msg.ToString());
             return Task.CompletedTask;
+        }
+
+        class Config
+        {
+            public string DiscordToken;
         }
     }
 }
