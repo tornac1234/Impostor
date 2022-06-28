@@ -3,7 +3,7 @@ using Impostor.Api.Games;
 using Impostor.Api.Innersloth;
 using Microsoft.Extensions.Logging;
 
-namespace Impostor.Plugins.Example.Handlers
+namespace Impostor.Plugins.RootPostor.Handlers
 {
     public class GameEventListener : IEventListener
     {

@@ -1,14 +1,12 @@
 using Impostor.Api.Events;
-using Impostor.Api.Events.Announcements;
-using Impostor.Api.Innersloth;
 
-namespace Impostor.Plugins.Example.Handlers
+namespace Impostor.Plugins.RootPostor.Handlers
 {
     public class AnnouncementsListener : IEventListener
     {
         private const int Id = 51;
 
-        [EventListener]
+        /*[EventListener]
         public void OnAnnouncementRequestEvent(IAnnouncementRequestEvent e)
         {
             if (e.Id == Id)
@@ -22,6 +20,6 @@ namespace Impostor.Plugins.Example.Handlers
                 e.Response.Announcement = new Announcement(Id, "Tornac's servers news:" +
                     "\n- Custom server is now supported");
             }
-        }
+        }*/
     }
 }
