@@ -22,7 +22,7 @@ namespace Impostor.Plugins.Example
         {
             _logger.LogInformation("Example is being enabled.");
 
-            var game = await _gameManager.CreateAsync(new GameOptionsData());
+            var game = await _gameManager.CreateAsync(null, new GameOptionsData());
             if (game == null)
             {
                 _logger.LogWarning("Example game creation was cancelled");
