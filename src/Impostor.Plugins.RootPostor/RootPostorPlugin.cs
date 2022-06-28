@@ -32,13 +32,10 @@ namespace Impostor.Plugins.Example
             await CreateCustomGameAsync(15, "Tornac");
         }
 
-        public override ValueTask DisableAsync()
+        public override async ValueTask DisableAsync()
         {
             _logger.LogInformation("RootPostor is being disabled.");
-#pragma warning disable CS4014
-            DiscordManager.ShutdownAsync();
-#pragma warning restore CS4014
-            return default;
+            await DiscordManager.ShutdownAsync();
         }
 
         public async ValueTask<GameCode> CreateCustomGameAsync(int playerCount, GameCode gameCode)
@@ -50,7 +47,7 @@ namespace Impostor.Plugins.Example
             gameOptionsData.KillCooldown = 40;
             gameOptionsData.VisualTasks = false;
             gameOptionsData.PlayerSpeedMod = 1;
-            var game = await _gameManager.CreateAsync(new GameOptionsData(), gameCode);
+            var game = await _gameManager.CreateAsync(null, new GameOptionsData(), gameCode);
             if (game == null)
             {
                 _logger.LogWarning("Special game creation was cancelled");

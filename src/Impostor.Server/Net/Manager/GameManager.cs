@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
@@ -111,7 +111,7 @@ namespace Impostor.Server.Net.Manager
             await _eventManager.CallAsync(new GameDestroyedEvent(game));
         }
 
-        public async ValueTask<IGame?> CreateAsync(IClient? owner, GameOptionsData options)
+        public async ValueTask<IGame?> CreateAsync(IClient? owner, GameOptionsData options, GameCode? code = null)
         {
             var @event = new GameCreationEvent(this, owner);
             await _eventManager.CallAsync(@event);
@@ -122,11 +122,11 @@ namespace Impostor.Server.Net.Manager
             }
 
             // TODO: Prevent duplicates when using server redirector using INodeProvider.
-            var (success, game) = await TryCreateAsync(options, @event.GameCode);
+            var (success, game) = await TryCreateAsync(options, code ?? @event.GameCode);
 
             for (var i = 0; i < 10 && !success; i++)
             {
-                (success, game) = await TryCreateAsync(options);
+                (success, game) = await TryCreateAsync(options, code);
             }
 
             if (!success || game == null)

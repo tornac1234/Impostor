@@ -1,8 +1,8 @@
-﻿using Impostor.Api.Events;
+using Impostor.Api.Events;
 using Impostor.Api.Events.Meeting;
 using Microsoft.Extensions.Logging;
 
-namespace Impostor.Plugins.Example.Handlers
+namespace Impostor.Plugins.RootPostor.Handlers
 {
     public class MeetingEventListener : IEventListener
     {

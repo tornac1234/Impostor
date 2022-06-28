@@ -1,12 +1,11 @@
 using System;
-using System.Numerics;
 using System.Threading.Tasks;
 using Impostor.Api.Events;
 using Impostor.Api.Events.Player;
 using Impostor.Api.Innersloth.Customization;
 using Microsoft.Extensions.Logging;
 
-namespace Impostor.Plugins.Example.Handlers
+namespace Impostor.Plugins.RootPostor.Handlers
 {
     public class PlayerEventListener : IEventListener
     {
@@ -43,9 +42,9 @@ namespace Impostor.Plugins.Example.Handlers
                     return;
                 var playerControl = e.PlayerControl;
                 await playerControl.SetColorAsync((ColorType)_random.Next(0, 17 + 1));
-                await playerControl.SetHatAsync((HatType)_random.Next(0, 114 + 1));
-                await playerControl.SetSkinAsync((SkinType)_random.Next(0, 18 + 1));
-                await playerControl.SetPetAsync((PetType)_random.Next(0, 11 + 1));
+                //await playerControl.SetHatAsync((HatType)_random.Next(0, 114 + 1));
+                //await playerControl.SetSkinAsync((SkinType)_random.Next(0, 18 + 1));
+                //await playerControl.SetPetAsync((PetType)_random.Next(0, 11 + 1));
             }
 
             /* if (e.Message == "test")

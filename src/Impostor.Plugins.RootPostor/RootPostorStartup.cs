@@ -1,6 +1,6 @@
 using Impostor.Api.Events;
 using Impostor.Api.Plugins;
-using Impostor.Plugins.Example.Handlers;
+using Impostor.Plugins.RootPostor.Handlers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
